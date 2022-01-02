@@ -1,7 +1,13 @@
-#!bin/bash
-sudo yum -y update
-sudo yum -y install httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-sudo chown ec2-user:apache -R /var/www/
-netstat -plnt
+#!/bin/bash
+yum -y update
+amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+yum install -y httpd mariadb-server
+
+systemctl start httpd
+systemctl enable httpd
+
+systemctl start mariadb
+systemctl enable mariadb
+
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www

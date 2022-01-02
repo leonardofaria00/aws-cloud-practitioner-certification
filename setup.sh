@@ -1,6 +1,7 @@
 #!bin/bash
-sudo yum update -y
-sudo yum install httpd -y
+sudo yum -y update
+sudo yum -y install httpd
 sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo chown ec2-user:apache -R /var/www/
+netstat -plnt

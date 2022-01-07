@@ -1,0 +1,25 @@
+Linux command to create new storage.
+
+List partitions monted:
+$ df -h
+
+Create partition on disk
+$ fdisk /dev/name_partition
+
+Create file system
+$ mkdisk.ext4 /dev/name_partition
+
+Mound disk
+$ mount /dev/name_partition /mnt
+OBS: /mnt here local monted
+
+Unmount disk
+$ umount /mnt
+
+Enable mount automatic on system with fstab
+OBS: edit /etc/fstab with: /dev/name_partition /disk-extern ext4 defaults 0 0
+runne
+$ sudo mount -a    to enable mount if rebooted system.
+
+Create symbolic link
+$ ls -s /mnt medias
